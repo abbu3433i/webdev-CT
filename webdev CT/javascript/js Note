@@ -1,0 +1,389 @@
+***"DataType"***
+number --float nhi hota
+string --->   char nhi hota
+boolean
+Null
+
+
+
+
+*********var vs let vs const********
+1."var"--redeclare and reassign krr sakte hen [globally scoped variable]
+var a=5
+var a=10
+
+2."let"--redeclare nhi krr sakte par reassign kar sakte hen [blocked scoped variable]
+let a=5
+ a=10
+
+3."const"--Dono nhi kar sakte redeclare and reassign 
+const a=5
+a=10
+console.log(a)
+
+
+
+*******"concatination ke kaam aata he"*******
+let firstName='abc'
+let lastName='xyz'
+console.log(firstName+lastName)
+console.log(`${firstName} ${lastName}`)
+
+
+
+
+*** ==vs=== ***
+==--> isme datatype check nhi hota bas value same hona chahiye 
+===--> isme datatype as well as value dono check hoti hen same hona chahiye
+
+
+
+
+****** undefined vs Null *******
+let user  ---"undefined dega"
+
+let user=Null  ---"Null dega"
+console.log(user)
+
+
+
+
+******** "Ternary operator" ********
+let user --[declare]
+user?console.log('hello'):console.log('hii hello')----[condition]
+
+
+
+
+*** Non primitive datatype ***
+let arr12=[1,2,4,5,'string',true,false]
+arr[0]
+
+
+
+
+*** in mtlb array ka index print ho jayega ***
+for(let i in arr){
+    console.log(i)
+}
+
+
+
+
+*** of mtlb Array ki values print ho jayengi ***
+for(let i of arr){
+    console.log(i)
+}
+
+
+***function***
+function add(){
+    console.log('hill')
+}
+add()
+add()
+
+******Arrow function*******
+function add=()=>{
+    console.log('hill')
+}
+add()
+add()
+
+
+
+
+***1. map new arry create kar deta he or new arr print kar dega[new1]***
+***2. Map and forEach sirf array ko chalane ke kaam aate hen***
+let arr=[1,2,3,4]
+let new1 = arr.map((a,b,c)=>{     //a= arr ki values dega  
+    return a                       //b=index dega
+                                   //c=full array dega
+})
+console.log(new1)
+
+
+
+
+*****1. ForEach return type nhi deta******
+*****2. new array create nhi karta he purane array me hi edit kar deta he or agar new array 'return' karayegen to undefined de deta he***
+
+let arr=[1,2,3,4]
+let new1=arr.forEach( (e,b,a)=>{
+      console.log(a)
+    # return a
+})
+console.log(new1)   //#undefined dega kyuki iska return type nhi he
+
+
+
+
+
+************filter*************
+# ***values ko filter karna apne hisaab se.. OR "pure array ko dekhega"***
+//ye bhi ek new array return karta he
+let new1 =  arr.filter((a,b,c)=>{
+    return a>2
+})
+console.log(a)
+
+
+
+
+
+**************Find****************
+# ----"find" usi jagah se value ko find karega jahan vo value he piche bali values ko nhi dekhega***
+let new2 =  arr.find((a,b,c)=>{
+    return a>2
+})
+console.log(a)
+
+
+
+
+*************reduce*************
+# --will give sum of the array
+let brr=[1,2,3,4,5,6]
+let new1= arr.reduce((a,b)=>{       //b= value array me iterate karegi
+    return a+b
+
+    //a=a+b
+    //a=1+2
+    //a=3
+
+    //a=3+3
+    //a=6
+
+    //a=6+4
+    //a=10
+})
+console.log(new1)
+
+
+
+
+# //////G.E.C--> Global Execution context
+/******1.****Execution context*****(closure)--agar ek baar fn call ho gya to uski values dusre fn. me retail ho jayengi bo destoye nhi hongin{usko dusre fn me bhi use kar sakte hen}********/
+function outer(){
+    let user = 'hello'
+    function inner(){
+        console.log(user)
+    }
+    inner()
+}
+outer()
+/////Lexical environment --> agar value uske paas nhi he to parent me check karega...agar uske paas bhi nhi hogi to bo apne parent me check karega
+/**2.*****Ex context*****/
+function outer(){
+    let user = 'hello'
+    function inner(){
+        console.log(user)
+    }
+    // inner()
+    return inner
+}
+let inner = outer()
+inner()
+
+
+
+
+
+ *****""Hosting""--value apne aap upar declare ho jayengi********
+
+       console.log(a)   //let is blocked scoped it cannot automatically declare upside
+        let a=4         //ye host ho to jayega par dead zone me chala jayega isliye error dega
+
+        // {
+        //     let z = 5;    //let--is blocked or local scoped mtlb iskoblock{} ke andar use kar sakte hen block ke bahar bo destroye ho jayega or error dega
+        // }   
+        // console.log(z)
+
+
+        
+        console.log(a)  // [var is global scoped it automatically declare upside]
+        var a=4         //ye completely host ho jayega
+
+
+
+
+
+          *****1. higher order function--esa fn jo function hi return karta ho*****
+         ******2. or esa fn jo apne argument me dusre fn ko store karta ho*************
+
+        function outer(a){        /*** "a" naam ke variable ne inner fn ko store kakre rkha***/
+            console.log('outer')
+            a()
+        }
+        function inner(){
+           console.log('inner')
+        }
+        outer(inner)
+
+        //*1
+        function outer(){
+            console.log('outer')
+            function inner(){
+                console.log('inner')
+            }
+            return inner
+        }
+        outer()() //*****double parathensis bec. iska returnType fn. hi he
+        // let i = outer()
+        // i()
+
+
+
+
+    #   TASK-1
+        *********create a function which separate the arr values*********
+
+        let arr = [1,2,3,4,5,true, false , 'hello', 'hiiiii']
+
+        function get(arr){
+            let res=[]
+            for(let item of arr){
+                if(typeof item=='string'){
+                    res.push(item)
+                }
+            }
+            return res
+        }----1.
+    
+        function getnumber(arr){
+            let res=[]
+            for(let item of arr){
+                if(typeof item=='string'){
+                    res.push(item)
+                }
+            }
+            return res
+        }----2.
+
+        function getbool(arr){
+            let res=[]
+            for(let item of arr){
+                if(typeof item=='string'){
+                    res.push(item)
+                }
+            }
+            return res
+        }----3.
+        console.log(get(arr))
+        console.log(getnumber(arr))       //call fn.
+        console.log(getbool(arr))    
+
+
+
+
+
+        /*****[separate]*****with the help of high order function*********/
+        function getString(item){
+            return typeof item=='string'
+        }
+        function getNumber(item){
+            return typeof item=='number'
+        }
+        function getBool(item){
+            return typeof item=='boolean'
+        }
+
+        function get(arr,fn){
+            let res=[]
+            for(let item of arr){
+                if(fn(item)){
+                    res.push(item)
+                }
+            }
+            return res
+        }
+        console.log(get(arr,getString))
+        console.log(get(arr,getNumber))
+        console.log(get(arr,getBool))
+
+
+
+
+
+        /*********callback function--Ek esa fn jo apne argument me dusre fn ko store karta ho*********/
+     1.   function callback(num,fn){
+            return fn(num)
+        }
+        function boolean(num){
+            return typeof num=='boolean'
+        }
+        console.log(callback(true,boolean))  // [true or boolean]---[num or fn] ke andar jayega
+
+    # 2. setTimeout(() => {      ye bhi callback fn he kyuki ye argument me fn hi call kar rha he
+    #         console.log('four')
+    #     },2000);
+
+        ######/****String is imutable it cannot be change****/
+
+
+
+       ----------- *********This Keyword**********-----------
+        /*******[obj->prototype->null]-----chain******/
+
+        // let obj={
+        //     id:1,
+        //     user:'hello',
+        //     print: function(){
+        //         console.log(this.user);
+        //     }
+        // }
+        // console.log(obj.tostring())
+
+
+
+        # #######/****arr-> obj-> prototype-> null**/#############
+
+        //**isliye hum "." ko arr me use karte hen 
+        let arr=[1,2,3,4,5,6]
+
+        arr.map((a)=>{
+            console.log(a)
+        })
+
+
+
+
+
+         function outer(){
+             this.username = 'hello',
+             this.userLastname = 'hiiiii'
+         }
+         let user = new outer()  //constructor obj create karta he..... isme obj create ho gya and return bhi obj hoga
+         console.log(user)
+
+        
+
+        function outer(user,lastName){    //isme parameters he
+            this.username=user,
+            this.userLastname=lastName
+        }
+        let user = new outer('helo','hiiii')  //isme argument diya he
+        console.log(user)
+
+
+
+        /*******1.*synchronous jiska order ho[serial wise chale]**********/
+        /*******2.*Asynchronous jiska koi order na ho[parally chale]**********/
+
+        console.log('one')
+
+        setTimeout(() => {
+            console.log('three')
+        },);
+
+        setTimeout(() => {
+            console.log('four')
+        },2000);
+
+        console.log('two')
+
+
+
+          This will reaming!!!!
+        /************callback hell**********/
+        /************promisis**********/

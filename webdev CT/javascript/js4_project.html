@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Note tasking app</h1>
+    <input type="text" name="" id="title">
+    <button id="add-button">add</button>
+
+     <ul id="list">
+      
+     </ul>
+
+     <button id="remove">remove</button>
+
+
+
+
+
+
+
+
+<script>
+  
+// Select input element
+const inp = document.getElementById('title');
+
+// select list element
+const ul = document.getElementById('list');
+
+// select button element
+const addButtonEl = document.getElementById('add-button');
+
+// select button element
+const remove = document.getElementById('remove');
+
+//***********adding "click" event listener on button element*********
+addButtonEl.addEventListener('click', function() {
+
+  // getting the value of the input field
+  const Text = inp.value;
+  
+  // creating and 'li' element and adding inner text
+  const li = document.createElement('li');
+  li.innerText = Text;
+
+  // add the newly created li element to the ul
+  ul.appendChild(li);
+
+  // clear the input field after adding li to the list
+  inp.value = '';
+  
+})
+
+
+     </script>
+</body>
+</html>

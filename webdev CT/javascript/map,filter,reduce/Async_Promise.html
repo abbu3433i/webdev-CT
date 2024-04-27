@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //+++++++++++++++++++ Promisis(iske parameter ke andar callbackfn aata he) +++++++++++++++++++++++++++++++++++++++++++++
+// # Task-1
+        const promisOne  = new Promise((resolve , reject)=>{
+            setTimeout(() => {
+                console.log("Async is completed");
+                resolve() //----ye promise ko then se connect karne ka kaam kar rha he 
+            }, 1000);
+
+        })
+
+        promisOne.then(()=>{
+            console.log("this is connected");
+        })
+
+
+
+// # Task-2------passing data inside the resolve and reject
+        // const promisTwo  = new Promise((resolve , reject)=>{
+        //     setTimeout(() => {
+        //         console.log("Data is printing");
+        //         resolve({username:"abhishek", surname:"gour"}) //----Passing data here
+        //     }, 1000);
+
+        // })
+
+        // promisTwo.then((elem)=>{
+        //     console.log(elem);
+        // })
+
+
+
+// # Task-3
+//         const promiseThree  = new Promise((resolve , reject)=>{
+//             const a = false;
+//             if (!a) {  //---a ka ulta kar de rha he or if ke andar condition true rehti he to if chal jata he nhi to else bala false chalta he
+//                 console.log("Asyn resolving");
+//                 resolve({username:"abbu", email:"abhishek456@gmail.com"})
+//             }else{
+//                 reject('Error detection somethig went wrong')
+//             }
+
+//         })
+// //      Block chain created
+//         promiseThree.then((elem)=>{
+//             console.log(elem);
+//             return elem.email //----this return elem.email passing to next then() it would accept and console it
+//         })
+//         .then((email)=>{
+//             console.log(email);
+//         })
+//         .catch((err)=>{
+//             console.log(err);
+//         })
+//         .finally(()=> console.log("promise is resolve or either rejected successfully"))
+ 
+
+//+++++++++++++++++++++++++++++++++++Async Await+++++++++++++++++++++++++++++++++++++++++++++
+//// #Task-1
+// const promisefour  = new Promise((resolve , reject)=>{
+//             const a = false;
+//             if (!a) {  
+//                 console.log("Asyn resolving");
+//                 resolve({username:"abbu", password:"12"})
+//             }else{
+//                 reject('Error detection somethig went wrong')
+//             }
+
+//         })
+
+//       //asyn naam ka fn banao or await karo jab tak koi data na aa jata then usko kisi variable me store karba ke console karba lo or agar koi err aye to usko try or catch ki madad se handle kar lo
+//         async function consumepromisfour(){
+//             try {
+//                 const response = await promisefour //---idar wait karo jab tak ki pomisfour me se koi data nhi aa jata
+//                 console.log(response);
+//             } catch (err) {
+//                 console.log(err);
+//             }
+//         }
+//         consumepromisfour()  //---fn calling part is important
+
+
+
+//#Task-2 -----------------Fetch api me se data kaise access kare or Handle karen
+// 1.[Asyn await]
+    // async function call(){
+    //    let rawdata = await fetch('https://dummyjson.com/products/1')
+    //    let real = await rawdata.json() //----json metadata ko original data me convert kar dega
+    //    console.log(real);
+    // }
+    // call()
+
+//2. [then or catch]  
+    //    fetch('https://dummyjson.com/products/1')
+    //    .then((elem)=>{
+    //     return elem.json();  //---elem ka data next then() me access hoga kyuki ye then() return kar rha he
+    //    })
+    //    .then((data)=>{
+    //     console.log(data);
+    //    })
+    //    .catch((err)=>{
+    //     console.log("Error detecting");
+    //    })
+
+
+
+
+
+
+        // ----------------This hamesha object ko reffer karta he---------------------------------------
+
+
+        //1*******This keyword shown window object which is universal object****
+        // console.log(this);
+
+
+
+        // 2.*************Inside the object we use this word*************
+        // Is baar "This" apne parent mtlb obj ko...or uski sari properties ko access karega
+        // const obj = {
+        //     name: 'abhishek',
+        //     lastname: 'gour',
+        //     fullname: function(){
+        //         // return this
+        //         return this.name +" "+ this.lastname
+        //     }
+        // }
+        // console.log(obj.fullname());
+
+
+
+
+        // 3.**********Inside function***********
+        // // this time also return window obj bec. This hamesha object ko reffer karta he function ko nhi
+        // function xyz(){
+        //     return this;
+        // }
+        // console.log(xyz());
+
+
+        
+     // //"use strict"------is very powerful keyword
+        // function xyz(){
+        //     return this;
+        // }
+        // console.log(xyz());
+    </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+    
+//++++++++++++++++++++++++++For of working on map but not on objecet?++++++++++++++++++++++++++++++++
+// # Task-1
+    // const map = new Map();
+
+    // map.set('Ind',"india")
+    // map.set('Pak',"Pakistan")
+    // map.set('ame',"Ajmerica")
+
+    // // console.log(map);
+
+    // for (const [key,value] of map) {    
+    //   console.log(key,'is for',value);
+    // }
+
+// # Task-2
+    // const myobject = {
+    //     js: "javascript",
+    //     cpp: "C++",
+    //     rub: "Ruby",
+    //   }
+     
+    // for (const [key,value] of myobject) {    //-----for of loop object pe nhi chalta
+    //   console.log(key,'is for',value);
+    // }
+
+//+++++++++++++++++++++++++++++++For in ki madad se obj se value kaise len+++++++++++++++++++++++++++++++++
+      // const myobject = {
+      //   js: "javascript",
+      //   cpp: "C++",
+      //   rub: "Ruby",
+      // }
+
+      // for (const key in myobject) {
+      //   // console.log(key);    //--ye key print karega
+      //   // console.log(myobject[key]);   //--ye key ki value print karega
+
+      //   // or agar dono karani ho to concatination ka use karo
+      //   console.log(`${key} is for ${myobject[key]}`);
+          
+      // }
+
+      // +++++++++++++++++++++++Foreach loop+++++++++++++++++++++++++++++++++
+      //---------for each loop value return nhi karta he ye iska sabse bada exception he 
+      const coding = ["js","python","c++","ruby"];
+// # Task-1
+      // function printme(val){
+      //   console.log(val);
+      // } 
+      // coding.forEach( printme )  //---printme ka refrence dena he printme() karke call nhi karba dena err dega
+
+// # Task-2
+      // coding.forEach( (val,i,arr)=> {
+      //   console.log(val);
+      // return val----undefined dega 
+      // });
+
+// # Task-3 ----Array ke andar object ho to kaise acces karen
+      // const arrobject = [
+
+      //   {courseName: "javascript",
+      //    laungefilename:"js"
+      //   },
+
+      //   {courseName: "python",
+      //    laungefilename:"py"},
+
+      //   {courseName: "java",
+      //    laungefilename:"java"},
+      // ]
+
+      // arrobject.forEach( (elem)=> {
+      //   console.log(elem.courseName);
+      // });
+
+
+      // +++++++++++++++++++++++++++Filter me return karna jaroori he++++++++++++++++++++++++++++++++++++++++
+  
+// # Task-1
+      // const mynums = [1,2,3,4,5,6,7,8,9,10];
+      // const value = mynums.filter( (elem)=>{
+        //   return elem>4;
+        // } )
+      //  // const value = mynums.filter( (elem)=> elem>4)//------agar bina return diye filter karna ho to scoped ke bahar likh do out of this {} paranthesis
+      // console.log(value);
+
+//// # Task-2  -------values ko filter kar rha he
+// const mybooks = [
+//   {title:'book one', genre:'Non fiction', publich: 1989, editior: 2010},
+//   {title:'book two', genre:' fiction', publich: 2000, editior: 2007},
+//   {title:'book three', genre:'History', publich: 1979, editior: 2011},
+//   {title:'book four', genre:'Science', publich: 2009, editior: 2014},
+//   {title:'book five', genre:'Non fiction', publich: 1979, editior: 2015},
+//   {title:'book six', genre:'History', publich: 2001, editior: 2005},
+// ]
+
+// const nikalo = mybooks.filter( (bk)=>{
+//   // return bk.genre==='History' //-----isme jiska genre history ho bo mil jayega
+
+//   return bk.publich >=2000 && bk.genre==='History'  //---isme jiski publish 2000 se upar and genre history ho bo mil jayega
+// })
+// console.log(nikalo);
+
+
+
+// ++++++++++++++++++++++++++++++++Map me bhi return likhna jaroori he+++++++++++++++++++++++++++++++++++++++
+//# Task-1
+const arr = [1,2,3,4,5,6,7,8,9,10];
+
+// const give = arr.map( (num)=>{
+//   return num + 10; //----arr ki form me values return kar rha he
+// } )
+// console.log(give);
+
+////# Task-2
+//----------------------we can also create chain map se jo val aa rhi he uspe firse map and then filter fn. laga do
+// const chain  = arr.map((num)=>num*10)
+//                   .map((num)=>num+1)
+//                   .filter((num)=>num >= 41)
+// console.log(chain);
+
+
+
+// +++++++++++++++++++++++++++++++++Reduce me bhi return likhna jaroori he++++++++++++++++++++++++++++++++++++++
+//# Task-1
+// const a = [1,2,3,4]
+// const Total = a.reduce((accumolator , currentValue)=>{
+//   return accumolator + currentValue;  
+
+// },0)//-----accumolator ko initial value 0 di he and current value pure arr pe iterate hogi--And jo bhi sum hoga bo fir se accmulator me jayega or current val se fir se sum hoga.... ye chalta rhega jab tak pura arr iterate nhi ho jata
+// console.log(Total);
+  
+
+//# Task-2-------Shoping card total bill
+    //  const mycard = [
+
+    //   {course:"js course",
+    //    price:999},
+    //   {course:"web dev course",
+    //    price:5999},
+    //   {course:"AIML course",
+    //    price:11999},
+    //  ]
+
+    //  const totalbill = mycard.reduce((acc , item)=>{
+    //   return acc + item.price; //---arr ke andar ka obj price naam ka 
+    //  },0)
+    //  console.log(totalbill);
+
+
+//-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+    // ***************** Map method**value true of false me return karega***************
+    // //it will create new array from exsisting one
+    // const arr1 = [2,3,4,5,6,7,8,9];
+    // // let newArr = arr1.map((element,index,arr)=>{------only we are using elements of the arr
+    // let newArr = arr1.map((element)=>{
+    //     return element*2;
+    // })
+    // console.log(newArr);
+
+
+    // *********************Filter method***arr return karta he*******************
+    // const arr2 = [1,2,4,5,9,6,8,7,3];
+    // const newArr = arr2.filter((element)=>{
+    //      return element%2==0; //---------ye arr ke ele ko ek ek karke dekhega ki value true he ya false true hogi to newArr me store kar dega 
+    // });
+    // console.log(newArr);
+
+
+
+    // ************************Reduce method*******************************
+    //-----reduce kar degi sari values ko ek single value me---
+      // const arr = [2,4,5,6];
+      // const newvalue = arr.reduce((previoustValue,currentValue)=>{
+      //      return previoustValue+currentValue;
+      // });
+      // console.log(newvalue);
+    // }
+
+    </script>
+</body>
+</html>

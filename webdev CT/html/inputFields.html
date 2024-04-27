@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <form action="/action_page.php">     <!--ye form php ke page me store ho jayega mtlb backend me-->
+
+    <!-- 1. File select karvana ho-->
+  <input type="file" id="files" name="files" multiple><br><br>
+ 
+  <!-- 2. Telephone no.-->
+  <!-- pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" This will help to give mismatch msg [0-9]tak value le sakte ho-{3} represent=>lekin 3 valus hi le sakte ho -->
+  <input type="tel"  placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"><br><br>
+
+  <!-- 3. Number-->
+  <input type="number">
+
+  <!-- 4. img deke sumit button bana sakte hen-->
+  <input type="image" src="img_submit.gif" alt="Submit" width="48" height="48"><br><br>
+
+  <!-- 5. option dena ho ya list add karna ho-->
+  <input list="browsers">
+  <datalist id="browsers">
+    <option value="Edge">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+  </datalist>
+
+  <!-- 6. Reset button jo sab reset kar degi-->
+  <input type="reset" name="" id=""><br><br>
+
+  <!-- 7. name same kar do ek select ho jayega-->
+  <input type="radio" name="male" id=""><br>
+  <input type="radio" name="male" id=""><br>
+
+  <!-- 8. Search-->
+  <input type="search" name="" id=""><br><br>
+
+  <!-- 9. password-->
+  <input type="password" name="" id=""><br>
+
+  <!-- 10. check box -->
+  <input type="checkbox" name="am" id="">
+  <input type="checkbox" name="am" id=""><br>
+
+
+  <input type="submit" value="Submit">
+
+</form>
+</body>
+</html>

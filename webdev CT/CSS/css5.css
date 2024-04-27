@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+div{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    /* background: rgb(131,58,180); */
+    background: radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(14,6,6,0.9643874643874644) 50%, rgba(252,176,69,1) 100%);
+    animation-name: two;
+    animation-duration: 900ms;
+
+    /*ease in mtlb starting me[0%] slow ho jayega*/
+    animation-timing-function: ease-in;  
+
+    animation-iteration-count: infinite;
+
+    /*alternate means animation jahan pe end ho rha bahin se start ho jaye*/
+    animation-direction: alternate;  
+}
+
+
+@keyframes two{
+    0%{
+        /* translateY mtlb y axis ke 0 se le le AND trsnlateX mtlb x axis se distance le le*/
+       transform: translateY(0px);
+    }
+    100%{
+      transform: translateY(65vh) rotate(360deg);
+    }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+       /* *******Animation by keyframe******** */
+
+div{
+    height: 300px;
+    width: 300px;
+    background: blueviolet;
+    animation-name: abbu;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+}
+
+@keyframes abbu{
+    0%{
+        height: 300px;
+        width: 300px;
+        background: black;
+    }
+    25%{
+        height: 100px;
+        width: 500px;
+    }
+    50%{
+        height: 400px;
+        width: 300px;
+    }
+    100%{
+        height: 100px;
+        width: 200px;
+    }
+}
+
+</style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

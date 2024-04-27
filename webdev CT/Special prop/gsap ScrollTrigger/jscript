@@ -1,0 +1,19 @@
+
+var tl = gsap.timeline({scrollTrigger:{
+    trigger:".page2",
+
+    //  page , window screen  
+    start:"0% 90%",
+    end:"180% 90%",
+    // markers:true,
+    scrub:true,
+}})
+
+tl.to(".strip-r",{
+marginLeft:"-50%"
+},"same")
+
+tl.to(".strip-l",{
+marginLeft:"0%"
+},"same")
+

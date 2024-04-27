@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: aquamarine;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container{
+            width: 70%;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: aqua;
+            gap: 20px;
+        }
+        input{
+            width: 250px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid whitesmoke;
+            border-radius: 10px;
+            font-size: 20px;
+        }
+        .btn{
+            width: 70px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid whitesmoke;
+            border-radius: 10px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .city{
+            font-size: 40px;
+        }
+        .tem{
+            font-size: 20px;
+        }
+        .maxtem{
+            font-size: 20px;
+        }
+        .mintem{
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+    <div class="input"> <input class="search" placeholder="enter a city name">
+    <button class="btn">Show</button></div> 
+
+    <h4 class="city"></h4>
+    <h5 class="tem"></h5>
+    <h5 class="mintem"></h5>
+    <h5 class="maxtem"></h5>
+
+    </div>
+    
+   <script>
+     let key="ac56ef655bed404d79be45e7045f0e87"
+     let url="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+
+     let inp=document.querySelector("input")
+     let btn=document.querySelector("button")
+
+     btn.addEventListener("click",()=>{
+           let city = inp.value
+        let responce=fetch(url+city+`&appid=${key}`).then((data)=>{
+            return data.json()
+        }).then((res)=>{
+            console.log(res)
+            add(res)
+        }) 
+     })
+     
+     let city=document.querySelector(".city")
+     let tem=document.querySelector(".tem")
+     let mintem=document.querySelector(".mintem")
+     let maxtem=document.querySelector(".maxtem")
+
+    function add(res){
+        console.log(res)
+        city.innerHTML=`city = ${res.name}` //"res ke andar"-> ka name city me daal do
+        tem.innerHTML=`temp=${res.main.temp}`
+        mintem.innerHTML=`mintemp=${res.main.temp_max}`
+
+       maxtem.innerHTML=`temp_min=${res.main.temp_min}`
+    }
+
+
+
+   </script>
+</body>
+</html>

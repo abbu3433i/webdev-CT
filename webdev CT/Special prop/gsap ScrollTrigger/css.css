@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html , body{
+    height: 100%;
+    width: 100%;
+}
+
+#main{
+    min-height: 100vh;
+    width: 100%;
+    background: rgb(60, 49, 49);
+    overflow: hidden;
+}
+.page1,.page2,.page3{
+    height: 100vh;
+    width: 100%;
+}
+.strip:nth-child(2n){
+    margin-left: -50%;
+}
+.strip{
+    width: 300%;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)1s;
+}
+.page2 h1{
+    font-size: 14vw;
+    /* width: 300%; */
+}
+.page2 h1 span{
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+}
+
+.strip{
+    line-height: 27vh;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input,button{
+            height: 5vh;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="movie" placeholder="movie ticket">
+    <button id="button">show movie</button>
+
+    <li>
+
+    </li>
+
+    <script>
+
+     let inp=document.querySelector("input")
+     let btn=document.querySelector("button")
+     let list=document.querySelector("li")
+
+     btn.addEventListener("click",()=>{
+           let movie=inp.value //input pata chal jayega
+        let responce=fetch(`https://api.tvmaze.com/search/shows?q=${movie}`)
+        .then((data)=>{
+            return data.json()
+        }).then((responce)=>{
+            console.log(responce)
+            show(responce);
+        })
+       
+     })
+
+     function show(data){
+    //  console.log(data[0].show.image.original,"tttttt");
+     let img=document.createElement("img")
+     img.setAttribute('src',data[0].show.image.original)
+     list.append(img)
+     img.style.width="60vh"
+     img.style.height="80vh"
+     }
+     
+   
+
+</script>
+   
+   
+       
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>add</button>
+    <button id="remove">remove</button>
+
+
+
+    <div></div>
+
+    <script>
+//-------------------------------Local storage which is provided by browser--------------------------------------------------
+
+        let inp = document.querySelector("input")
+        let btn = document.querySelector("button")
+        let del = document.querySelector("#remove")
+
+
+        // btn.addEventListener('click',()=>{
+        //     // console.log("helo");
+        //     let text = inp.value;
+        //     localStorage.setItem('data',text); 
+        // })
+
+        // del.addEventListener('click',()=>{
+        //     if (localStorage.getItem('data')) {
+        //         localStorage.clear('data')
+        //     }
+        //     else{
+        //         alert('There is no data remain')
+        //     }
+        // })
+        //-------Ye input field pe jo data local storage me he use dikha dega or bo refreash karne pe bhi nhi jayega---------
+        // if (localStorage.getItem('data')) {
+        //     inp.value = localStorage.getItem('data')
+        // }
+
+    /*********************Movie link se data fetch karke store karna he localsystem me********************************/
+        let div = document.querySelector("div")
+
+        btn.addEventListener("click",()=>{
+           let movie=inp.value //input pata chal jayega
+        let responce=fetch(`https://api.tvmaze.com/search/shows?q=${movie}`)
+        .then((data)=>{
+            return data.json()
+        }).then((responce)=>{
+            console.log(responce)
+            show(responce)
+        })
+       
+     })
+
+     //------show karega
+     function show(data){
+
+     localStorage.setItem('data',data[1].show.name)
+     let h1 = document.createElement('h1')
+     h1.innerHTML = localStorage.getItem('data')
+     div.append(h1)
+
+     //-------ye remove kar dega
+     del.addEventListener('click',()=>{
+     console.log("del");
+     h1.remove()
+     })
+
+     }
+
+     
+     
+    </script>
+    
+
+</body>
+</html>

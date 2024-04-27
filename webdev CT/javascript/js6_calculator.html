@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>Calculator(Abhishek)</title> 
+    <link rel="stylesheet" href="project.css" />  
+    <link rel="shortcut icon" href="calculator-2374442_640.webp" type="image/x-icon"> 
+    
+  </head> 
+  <body style="background-color: black"> 
+    <main class="main"> 
+      <div class="top_class_container"> 
+        <input type="tel" id="cal_input" /> 
+
+        <div class="grid_part"> 
+        <div class="first_no">C</div>       
+        <div class="first_no">**</div>    
+        <div class="first_no">%</div>  
+        <div class="first_no">÷</div>  
+        <div class="first_no">7</div>  
+        <div class="first_no">8</div>  
+        <div class="first_no">9</div>  
+        <div class="first_no">*</div>  
+        <div class="first_no">4</div>  
+        <div class="first_no">5</div>  
+        <div class="first_no">6</div>  
+        <div class="first_no">-</div>  
+        <div class="first_no">1</div>  
+        <div class="first_no">2</div>  
+        <div class="first_no">3</div>  
+        <div class="first_no">+</div>  
+        <div class="first_no">DEL</div>  
+        <div class="first_no">0</div>  
+        <div class="first_no">.</div>  
+        <div class="first_no">=</div>  
+        </div> 
+      </div> 
+    </main> 
+
+    <script>
+        let inp = document.querySelector('input')
+
+        let btn = document.querySelectorAll('.first_no')
+        // console.log(btn,'rrrr')
+
+        function deleteLast() {
+            var currentDisplay = inp.value;
+            //inp.value me removed ke baad jo value bachi he use store karba di
+            inp.value = currentDisplay.slice(0, -1); //thsi will shown that (0 =index bali value , -1 =ki space le le)
+                 }
+
+
+        for(let button of btn){
+            button.addEventListener('click',()=>{
+             let text = button.innerText
+
+             if(text=="C"){
+                inp.value=''
+             }
+             else if(text=="="){
+                inp.value= eval(inp.value)
+             }
+             else if(text=="DEL"){
+                deleteLast()
+             }
+
+             else{
+                inp.value=inp.value+text
+             }
+
+            })
+        }
+    </script>
+  </body> 
+</html>

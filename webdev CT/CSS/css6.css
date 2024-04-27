@@ -1,0 +1,60 @@
+/* **********Grid system************* */
+/* and grid just like flex always put in parent class */
+
+#parent{
+height: 700px;
+width: 900px;
+border: 2px solid red;
+
+/*grid colom 300px ke 3 colom bana dega AND vice versa 150px for row*/
+display: grid;
+grid-template-columns: 300px 300px 300px;
+grid-template-rows: 150px 150px 150px;
+
+margin: 30px auto; /**auto left-right se auto lega AND top-down se 30px lega**/
+
+grid-auto-rows: 50px; /*jo remaining boxes bachegen bo barabar 50px le lengen**/
+}
+
+/* *****for all class giving border**** */
+.class{
+    background: aqua;
+    border: 2px solid black;
+}
+
+.class:nth-of-type(2){
+    background: yellow;
+}
+.class:nth-of-type(3){
+background: gray;
+}
+.class:nth-of-type(4){
+background: orange;
+}
+.class:nth-of-type(5){
+background: pink;
+}
+.class:nth-of-type(6){
+background: violet;
+}
+.class:nth-of-type(7){
+background: blue;
+}
+.class:nth-of-type(8){
+    background: gold;
+}
+.class:nth-of-type(9){
+background: darkblue;
+}
+
+
+
+#one{
+    /*****Row wise*****/
+    grid-row-start:2 ;
+    grid-row-end: 3;
+
+    /* *****column wise**** */
+    grid-column-start: 2;
+    grid-column-end: 3;
+}

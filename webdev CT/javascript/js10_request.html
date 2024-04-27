@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- API(application programm interface)---frontend ko backend se connect karta he 
+        AJex---async javascript se axios request send karta he -->
+
+    <script>
+
+// fetch('https://dummyjson.com/products/1')  //-----request kar rha he server pe api dwara
+// .then((data)=>{
+// return data.json()  //--------json phele dummy data[metadata] leke original data me convert kar rha he
+
+// }).then((res)=>{
+//     console.log(res);
+
+// }).catch((err)=>{
+//     console.log(err);
+// })
+    
+
+
+
+
+/****************Second method*********************/
+async function call(){
+
+    let rawdata = await fetch('https://dummyjson.com/products/1')
+    let real = await rawdata.json() //----json metadata ko original data me convert kar dega
+    console.log(real);
+}
+call()
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+input[type='text']{
+    color: red;
+}
+
+/* '^'=> stating https can be selected */
+a[href^='https']{
+    background: blue;
+}
+
+/* '$'=>is used to select single last string */
+a[href$='.com']{
+    background: yellow;
+}
+
+/*   '*'=> is used to select multiple last string   */
+a[href*='com']{
+    background: yellow;
+}
+
+section>p{
+    background: red;
+}
+
+p:nth-of-type(2){
+    background-color: rebeccapurple;
+}
+
+
+
+/* "em"  apne parent ka double kr deta he */
+ul{
+    font-size: 2em;
+}
+
+/* "span" tag ki by default property inline hoti he  */
+
+/* inline-block mtlb property applied ho jayegi prr uska display block hi rahega  */
+
+/* 1*visibility hidden,
+   2*display none */
+
+
+
+   
+   #id{
+    display: flex;
+   }
+
+   div:nth-of-type(1){
+    height: 200px;
+    width: 200px;
+    background: red;
+    flex-basis: 100px;   /*flex bisis increase area with user control in "px"*/
+
+    flex-grow: 1;   /*flex grow just give equal amount of area*/
+   }
+
+   div:nth-of-type(2){
+        height: 200px;
+    width: 200px;
+    background: gray;
+
+   }
+   div:nth-of-type(3){
+    height: 200px;
+    width: 200px;
+    background: yellow;
+
+   }
